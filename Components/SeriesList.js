@@ -1,5 +1,7 @@
 import { Component } from 'react'
-import Link from 'next/link'
+import { Link } from '../routes'
+import slug from '../Utilities/slug'
+
 
 export default class SeriesList extends Component {
   render () {
@@ -9,7 +11,10 @@ export default class SeriesList extends Component {
         <h2>Series</h2>
         <div className="channels">
           { series.map((serie) => (
-            <Link href={`/channel?id=${ serie.id }`} prefetch>
+            <Link route="channel" params={{
+              slug: slug(serie.title),
+              id: serie.id
+            }} prefetch>
               <a className="channel">
                 <img src={ serie.urls.logo_image.original } alt=""/>
                 <h2>{ serie.title }</h2>
