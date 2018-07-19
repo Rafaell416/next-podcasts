@@ -9,7 +9,7 @@ export default class ChannelGrid extends Component {
       <div>
         <div className="channels">
           { channels.map((channel) => (
-            <Link route="channel" params={{
+            <Link key={channel.id} route="channel" params={{
               slug: slug(channel.title),
               id: channel.id
             }} prefetch>

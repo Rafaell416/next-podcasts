@@ -1,20 +1,22 @@
 import { Component } from 'react'
 import Link from 'next/link'
+import slug from '../Utilities/slug'
 
-export default class ClipsList extends Component {
+export default class ClipsListWithClick extends Component {
   render () {
-    const { clips } = this.props
+    const { clips, onClickPodcast } = this.props
     return (
       <div>
       { clips.map((clip) => (
-        <Link href={`/podcast?id=${clip.id}`} prefetch key={clip.id}>
-          <a className='podcast'>
+          <a href={`/${slug(clip.channel.title)}.${clip.channel.id}/${slug(clip.title)}.${clip.id}`}
+             className='podcast' 
+             onClick={ (event) => onClickPodcast(event, clip) }
+          >
             <h3>{ clip.title }</h3>
             <div className='meta'>
               { Math.ceil(clip.duration / 60) } minutes
             </div>
           </a>
-        </Link>
       ))}
       <style jsx>{`
         .podcast {

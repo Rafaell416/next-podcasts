@@ -1,13 +1,20 @@
 import { Component } from 'react'
 import Layout from '../Components/Layout'
 import SeriesList from '../Components/SeriesList'
-import ClipsList from '../Components/ClipsList'
+import ClipsListWithClick from '../Components/ClipsListWithClick'
 import Error from './_error'
+import ClipPlayer from '../Components/ClipPlayer'
 
 export default class extends Component {
 
-  static async getInitialProps({ query, res }) {
+  constructor(props){
+    super(props)
+    this.state = {
+      openPodcast: null
+    }
+  }
 
+  static async getInitialProps({ query, res }) {
     try {
       let idChannel = query.id
 
@@ -38,8 +45,22 @@ export default class extends Component {
     }
   }
 
+  _openPodcast = (event, podcast) => {
+    event.preventDefault()
+    this.setState({ openPodcast: podcast })
+  }
+
+  _closePodcast = (event) => {
+    event.preventDefault()
+    this.setState({
+      openPodcast: null
+    })
+  }
+
   render() {
     const { channel, audioClips, series, statusCode } = this.props
+    const { openPodcast } = this.state
+
     if (statusCode !== 200) {
       return <Error statusCode={ statusCode }/>
     }
@@ -47,12 +68,13 @@ export default class extends Component {
     return (
       <Layout title={channel.title}>
         <div className="banner" style={{ backgroundImage: `url(${channel.urls.banner_image.original})` }} />
+        { openPodcast && <ClipPlayer clip={ openPodcast } onClose={ this._closePodcast } /> }
         <h1>{ channel.title }</h1>
 
         { series.length > 0 && <SeriesList series={ series }/> }
 
         <h2>Ultimos Podcasts</h2>
-        <ClipsList clips={ audioClips }/>
+        <ClipsListWithClick clips={ audioClips } onClickPodcast={this._openPodcast}/>
 
         <style jsx>{`
           .banner {
