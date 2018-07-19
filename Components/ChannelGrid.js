@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import Link from 'next/link'
+import { Link } from '../routes'
 
 export default class ChannelGrid extends Component {
   render () {
