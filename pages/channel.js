@@ -2,7 +2,7 @@ import { Component } from 'react'
 import Layout from '../Components/Layout'
 import SeriesList from '../Components/SeriesList'
 import ClipsList from '../Components/ClipsList'
-import Error from 'next/error'
+import Error from './_error'
 
 export default class extends Component {
 
