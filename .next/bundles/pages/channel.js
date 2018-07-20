@@ -1,7 +1,7 @@
 module.exports =
 __NEXT_REGISTER_PAGE('/channel', function() {
           var comp =
-      webpackJsonp([4],{
+      webpackJsonp([5],{
 
 /***/ "./Components/ClipPlayer.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -3776,8 +3776,7 @@ module.exports = function(originalModule) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* WEBPACK VAR INJECTION */(function(module) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Error; });
+/* WEBPACK VAR INJECTION */(function(module) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Error; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_styled_jsx_style__ = __webpack_require__("./node_modules/styled-jsx/style.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_styled_jsx_style___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_styled_jsx_style__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__("./node_modules/react/index.js");
@@ -4024,7 +4023,7 @@ function (_Component) {
       var openPodcast = this.state.openPodcast;
 
       if (statusCode !== 200) {
-        return __WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__error__["default"], {
+        return __WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__error__["a" /* default */], {
           statusCode: statusCode,
           __source: {
             fileName: _jsxFileName,
@@ -4212,7 +4211,7 @@ module.exports = routes() // ----   ----      -----
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./pages/channel.js");
@@ -4220,7 +4219,7 @@ module.exports = __webpack_require__("./pages/channel.js");
 
 /***/ })
 
-},[3])
+},[4])
           return { page: comp.default }
         })
       ;
